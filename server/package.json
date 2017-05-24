@@ -1,0 +1,18 @@
+{
+    "name": "mini_project",
+    "version": "1.0.0",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon startup/startup.js",
+        "local": "npm start -- --env=local",
+        "debug": "nodemon --debug startup/startup.js",
+        "debug-local": "npm run debug -- --env=local"
+    },
+    "license": "MIT",
+    "author": "lakelin",
+    "dependencies": {
+        "ejs": "^2.5.6",
+        "express": "^4.15.3",
+        "minimist": "^1.2.0"
+    }
+}
