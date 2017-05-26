@@ -1,19 +1,20 @@
-class PageCgiBase {
-    constructor(req, res, next) {
-        if (new.target === PageCgiBase) {
-            throw new Error('PageCgiBase cannot be instantiated directly.');
-        }
+// 公共基类，用于添加公用方法，不能直接实例化
 
-        Object.assign(this, { req, res, next })
+class PageCgiBase {
+    constructor(req, res) {
+        if (new.target === PageCgiBase) {
+            throw new Error('PageCgiBase cannot be instantiated directly.')
+        }
+        Object.assign(this, { req, res })
     }
 
     static makeRouteHandler() {
-        return (req, res, next) => new this(req, res, next).handle()
+        return (req, res) => new this(req, res).handle()
     }
 
     // 子类实现该方法处理请求
     handle() {
-        throw new Error(`Please implement instance method \`${this.constructor.name}::handle\`.`);
+        throw new Error(`Please implement instance method \`${this.constructor.name}::handle\`.`)
     }
 }
 

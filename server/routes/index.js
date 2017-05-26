@@ -1,3 +1,3 @@
 module.exports = {
-    '/addressList': '/address/routehub'
+    '/address': '/address/routehub'
 }

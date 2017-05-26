@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
             })
 
             // 打印日志
-            console.debug(logInfo)
+            console.log(logInfo)
 
             return res
         }
@@ -40,7 +40,7 @@ module.exports = (req, res, next) => {
         })
 
         // 打印日志
-        console.debug(logInfo)
+        console.log(logInfo)
     }
 
     next()

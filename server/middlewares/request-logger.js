@@ -1,7 +1,9 @@
 module.exports = (req, res, next) => {
+    let method = req.method.toUpperCase()
+
     let requestInfo = JSON.stringify({
         'url': req.originalUrl,
-        'method': req.method.toUpperCase(),
+        'method': method,
         'content-type': req.get('Content-Type'),
         'body': method === 'POST' ? req.body : void(0),
         'cookies': req.cookies,
