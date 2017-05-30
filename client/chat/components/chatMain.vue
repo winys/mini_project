@@ -20,7 +20,9 @@ export default {
         Post
     },
     created (){
+        this.appendPost()
         EventHub.$on("sendMsg",this.sendMsg.bind(this));
+        EventHub.$on("appendPost",this.appendPost.bind(this));
     },
     methods: {
         sendMsg( data ){
@@ -29,6 +31,16 @@ export default {
                 message : data.message,
                 is_from_me: data.from.openId === Me.openId
             } );
+        },
+        appendPost (){
+            for ( let item of _post_que){
+                this.posts.push({
+                    from : item.from,
+                    message : item.message,
+                    is_from_me: item.from.openId === Me.openId
+                });
+            }
+            _post_que = [];
         }
     }
 }
